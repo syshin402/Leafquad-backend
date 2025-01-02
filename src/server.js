@@ -8,10 +8,12 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3005",
+  origin: "http://localhost:3000",
   credentials: true,
 }));
 app.use(express.json());
+
+const NODE_ENV = process.env.NODE_ENV || "development";
 
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
   throw new Error("SUPABASE_URL and SUPABASE_ANON_KEY required in your .env");
@@ -117,6 +119,7 @@ app.get("/api/users/profiles", async (req, res) => {
         first_name,
         last_name,
         email,
+        major,
         "graduationYear",
         user_profiles (
           bio
@@ -148,6 +151,7 @@ app.get("/api/users/:id", async (req, res) => {
         first_name,
         last_name,
         email,
+        major,
         "graduationYear",
         user_profiles (
           bio
@@ -177,6 +181,7 @@ app.post("/api/users", async (req, res) => {
       first_name, 
       last_name, 
       email, 
+      major,
       graduationYear,
       profilepicture} = req.body;
 
@@ -186,7 +191,8 @@ app.post("/api/users", async (req, res) => {
         {
           first_name: first_name,
           last_name: last_name,
-          email: email,
+          email: email || null,
+          major: major || null,
           graduationYear: graduationYear || null,
           profilepicture: profilepicture || null,
         }
@@ -215,6 +221,7 @@ app.put("/api/users/:id", async (req, res) => {
       first_name, 
       last_name, 
       email, 
+      major,
       graduationYear,
       profilepicture} = req.body;
 
@@ -224,6 +231,7 @@ app.put("/api/users/:id", async (req, res) => {
         first_name,
         last_name,
         email,
+        major,
         graduationYear,
         profilepicture, 
     })
