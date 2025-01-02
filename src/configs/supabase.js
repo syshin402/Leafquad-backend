@@ -1,10 +1,9 @@
 const { createClient } = require("@supabase/supabase-js");
 
 require("dotenv").config();
-//const { Pool } = require("pg");
 
-if (!process.env.SUPABASE_URL) {
-  throw new Error("SUPABASE_URL is required");
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
+  throw new Error("Missing required Supabase environment variables");
 }
 
 const supabase = createClient(
@@ -12,4 +11,4 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 );
 
-module.exports = pool;
+module.exports = supabase;
