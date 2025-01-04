@@ -8,7 +8,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:3000", "https://leafquad-frontend.vercel.app"],
+  origin: ["http://localhost:3000", "https://leafquad-frontend.vercel.app", "https://leafquad-frontend-mc94j8yg5-syshin402s-projects.vercel.app"],
   credentials: true,
 }));
 app.use(express.json());
