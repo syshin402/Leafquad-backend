@@ -1,7 +1,6 @@
 This repository contains the LeafQuad backend code, which provides APIs and data management for the LeafQuad application. It connects to a database (or Supabase) to store user profiles, handle authentication, and power the features of the LeafQuad frontend.
 
-vercel: leafquad-backend-final-syshin402-syshin402s-projects.vercel.app
-
+vercel: https://leafquad-backend-final-syshin402-syshin402s-projects.vercel.app/
 
 LeafQuad’s backend is responsible for:
 
