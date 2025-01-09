@@ -236,12 +236,12 @@ app.put("/api/users/:id", async (req, res) => {
         profilepicture, 
     })
     .eq("id", userID)
-    .select("*")   
-    .single();
+    .select("*");   
+    //.single();
 
     console.log("User ID to update:", userID);
     console.log("Request body:", req.body);
-    
+
     if (error) {
       console.error("Supabase error:", error);
       return res.status(500).json({error: error.message});
