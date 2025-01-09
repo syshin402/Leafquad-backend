@@ -236,8 +236,8 @@ app.put("/api/users/:id", async (req, res) => {
         profilepicture, 
     })
     .eq("id", userID)
-    .select("*");   
-    //.single();
+    .select("*")   
+    .single();
 
     console.log("User ID to update:", userID);
     console.log("Request body:", req.body);
